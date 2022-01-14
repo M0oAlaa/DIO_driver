@@ -32,13 +32,13 @@ void ToggleLED(uint8_t u8_port,uint8_t u8_pin)
 	static uint8_t u8_state; //local variable to get the pin state
 	DIO_GETpinVal(u8_port,u8_pin,&u8_state);
 	/*Check if the led on or off & toggle the state*/
-	if(u8_state==NOK)
+	if(u8_state==DIO_LOW)
 	{
-		u8_state=OK;
+		u8_state=DIO_HIGH;
 	}
-	else if(u8_state==OK)
+	else if(u8_state==DIO_HIGH)
 	{
-		u8_state=NOK;
+		u8_state=DIO_LOW;
 	}
 	DIO_SETpinVal(u8_port,u8_pin,u8_state);
 }
